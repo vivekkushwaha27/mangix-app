@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import { ThemeProvider } from "./components/providers/ThemeProvider";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
   children,
@@ -12,6 +13,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider>
+          <Toaster position="top-right" />
+
           <div className="flex min-h-screen flex-col">
             <Navbar />
 

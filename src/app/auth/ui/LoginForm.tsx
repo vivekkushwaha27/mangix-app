@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
+import toast from "react-hot-toast";
 import Loader from "./Loader";
 import { login } from "@/services/auth.service";
 
@@ -16,11 +16,21 @@ export default function LoginForm() {
     const [password, setPassword] = useState("");
 
     const handleSubmit = async (
-        e: React.FormEvent<HTMLFormElement>
+        e: React.SyntheticEvent<HTMLFormElement>
     ) => {
         e.preventDefault();
 
         try {
+            if (!email.trim()) {
+                toast.error("Email is required");
+                return;
+            }
+
+            if (!password.trim()) {
+                toast.error("Password is required");
+                return;
+            }
+
             setIsLoading(true);
 
             const result = await login(
@@ -29,12 +39,24 @@ export default function LoginForm() {
             );
 
             if (result.success) {
+                toast.success(
+                    result.message || "Login successful"
+                );
+
                 router.push("/dashboard");
-            } else {
-                alert(result.message);
+
+                return;
             }
+
+            toast.error(
+                result.message || "Login failed"
+            );
         } catch (error) {
-            alert(error instanceof Error ? error.message : "Login failed");
+            toast.error(
+                error instanceof Error
+                    ? error.message
+                    : "Login failed"
+            );
         } finally {
             setIsLoading(false);
         }

@@ -10,28 +10,28 @@ export default function Loader() {
     ];
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-900">
+        <div
+            className="
+                fixed
+                inset-0
+                z-[9999]
+
+                flex
+                items-center
+                justify-center
+
+                bg-black/20
+                backdrop-blur-sm
+            "
+        >
             <div className="flex text-5xl font-extrabold tracking-wider">
                 {letters.map((letter, index) => (
-                    //   <span
-                    //     key={index}
-                    //     className={`
-                    //       ${letter.color}
-                    //       animate-bounce
-                    //     `}
-                    //     style={{
-                    //       animationDelay: `${index * 0.15}s`,
-                    //       animationDuration: "1s",
-                    //     }}
-                    //   >
-                    //     {letter.char}
-                    //   </span>
                     <span
                         key={index}
                         className={`
-    ${letter.color}
-    animate-typing-glow
-  `}
+                            ${letter.color}
+                            animate-typing-glow
+                        `}
                         style={{
                             animationDelay: `${index * 0.2}s`,
                         }}

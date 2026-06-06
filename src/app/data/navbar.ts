@@ -1,7 +1,7 @@
 export const navbarLinks = [
   {
-    title: "Features",
-    href: "/features",
+    title: "Home",
+    href: "/",
   },
   {
     title: "Pricing",
