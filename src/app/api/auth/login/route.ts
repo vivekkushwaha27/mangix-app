@@ -30,13 +30,21 @@ export async function POST(request: Request) {
         );
     }
 
-    const token = generateToken({ userId: user.id, email: user.email, });
+    const token = generateToken({
+        userId: user.id,
+        email: user.email,
+        fullName: user.full_name,
+        imageUrl: user.image_url,
+        role: user.role
+    });
     const cookieStore = await cookies();
     cookieStore.set("auth_token", token,
         {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "strict",
+            // secure: process.env.NODE_ENV === "production",
+            secure: false,
+            // sameSite: "strict",
+            sameSite: "lax",
             maxAge: 60 * 60 * 24,
             path: "/",
         }
@@ -45,11 +53,6 @@ export async function POST(request: Request) {
     return NextResponse.json({
         success: true,
         message: "Login successful",
-        status: 200,
-        user: {
-            id: user.id,
-            fullName: user.full_name,
-            email: user.email,
-        },
+        status: 200
     });
 }

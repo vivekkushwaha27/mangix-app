@@ -36,6 +36,8 @@ export default function HomePage() {
 
   const industries = [
     "🏋️ Gym",
+    "🏠 PG",
+    "🏡 Rental House",
     "💃 Dance Academy",
     "🏊 Swimming Club",
     "🎵 Music School",

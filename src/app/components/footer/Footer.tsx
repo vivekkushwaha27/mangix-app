@@ -17,9 +17,7 @@ export default function Footer() {
                         </h2>
 
                         <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
-                            Manage students, attendance,
-                            batches and payments from a
-                            single platform.
+                            Manage Members, Payments & more with MANAGIX
                         </p>
                     </div>
 
@@ -30,21 +28,11 @@ export default function Footer() {
 
                         <ul className="mt-3 space-y-2">
                             <li>
-                                <Link href="/features">
-                                    Features
-                                </Link>
+                                <Link href="/pricing">Pricing</Link>
                             </li>
 
                             <li>
-                                <Link href="/pricing">
-                                    Pricing
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link href="/contact">
-                                    Contact
-                                </Link>
+                                <Link href="/contact">Contact</Link>
                             </li>
                         </ul>
                     </div>

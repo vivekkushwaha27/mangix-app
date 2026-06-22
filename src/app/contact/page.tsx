@@ -58,7 +58,7 @@ export default function ContactPage() {
     {
       name: "Nanam Choudhary",
       title: "Project Manager",
-    },
+    }
   ];
 
   return (

@@ -43,7 +43,7 @@ export default function LoginForm() {
                     result.message || "Login successful"
                 );
 
-                router.push("/dashboard");
+                window.location.href = "/dashboard";
 
                 return;
             }
